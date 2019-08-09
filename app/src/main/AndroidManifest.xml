@@ -9,9 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".View.Information"></activity>
+        <activity android:name=".View.exercise.ReadingSpeed"></activity>
+        <activity android:name=".View.exercise.Suggestions" />
+        <activity android:name=".View.exercise.DifferentWords" />
+        <activity android:name=".View.exercise.EvenNumbers" />
+        <activity android:name=".View.exercise.SearchLetter" />
+        <activity android:name=".View.exercise.Numerical" />
+        <activity android:name=".View.exercise.TableSchulte" />
+        <activity
+            android:name=".View.exercise.WordPair"
+            android:screenOrientation="landscape"/>
+        <activity
+            android:name=".View.Training"
+            android:label="@string/title_activity_traning"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".View.Information" />
         <activity android:name=".View.Profile" />
-        <activity android:name=".View.Training" />
         <activity android:name=".View.Registration" />
         <activity android:name=".View.Splash" />
         <activity android:name=".View.MainActivity">

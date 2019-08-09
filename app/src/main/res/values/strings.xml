@@ -3,4 +3,12 @@
     <string name="training">тренировка</string>
     <string name="profile">профиль</string>
     <string name="information">информация</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_traning">Traning</string>
+    <string name="plan_training">упражнения</string>
+    <string name="statistics">статистика</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
 </resources>
