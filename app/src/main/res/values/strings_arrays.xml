@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="name_exercise">
+        <item>Словопары</item>
+        <item>Таблица Шульта</item>
+        <item>Числа</item>
+        <item>Поиск букв</item>
+        <item>Четные числа</item>
+        <item>Разные слова</item>
+        <item>Предложения</item>
+        <item>Скорость чтения</item>
+    </string-array>
+
+    <!-- Word Pair-->
+    <string-array name="word_pair_4">
+        <item>Гонг</item>
+        <item>Гриф</item>
+        <item>Гимн</item>
+        <item>Горн</item>
+        <item>Грош</item>
+        <item>Гнев</item>
+        <item>Гран</item>
+        <item>Гурт</item>
+        <item>Гала</item>
+    </string-array>
+    <string-array name="word_pair_5">
+        <item>1Гонг</item>
+        <item>1Гриф</item>
+        <item>1Гимн</item>
+        <item>1Горн</item>
+        <item>1Грош</item>
+        <item>1Гнев</item>
+        <item>1Гран</item>
+        <item>1Гурт</item>
+        <item>1Гала</item>
+    </string-array>
+    <string-array name="word_pair_6">
+        <item>Гонг</item>
+        <item>Гриф</item>
+        <item>Гимн</item>
+        <item>Горн</item>
+        <item>Грош</item>
+        <item>Гнев</item>
+        <item>Гран</item>
+        <item>Гурт</item>
+        <item>Гала</item>
+    </string-array>
+    <string-array name="word_pair_7">
+        <item>Гонг</item>
+        <item>Гриф</item>
+        <item>Гимн</item>
+        <item>Горн</item>
+        <item>Грош</item>
+        <item>Гнев</item>
+        <item>Гран</item>
+        <item>Гурт</item>
+        <item>Гала</item>
+    </string-array>
+    <string-array name="word_pair_8">
+        <item>Гонг</item>
+        <item>Гриф</item>
+        <item>Гимн</item>
+        <item>Горн</item>
+        <item>Грош</item>
+        <item>Гнев</item>
+        <item>Гран</item>
+        <item>Гурт</item>
+        <item>Гала</item>
+    </string-array>
+</resources>
