@@ -9,12 +9,11 @@ public interface MainContract {
         void preparationToStart();
         void startExercise();
         void checkAnswer(View view);
-        int changeLevel(int nowLevel, boolean lastAnswer);
         void exerciseEnd();
     }
 
     interface Presenter {
-        void onDestroy();
+        void setResult(int point);
     }
 
     interface Model {

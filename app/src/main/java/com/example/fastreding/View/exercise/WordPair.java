@@ -1,13 +1,16 @@
 package com.example.fastreding.View.exercise;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.fastreding.MainContract;
 import com.example.fastreding.R;
+import com.example.fastreding.View.ResultExercise;
 import com.example.fastreding.present.*;
 
 public class WordPair extends AppCompatActivity implements MainContract.ViewExercise {
@@ -17,11 +20,13 @@ public class WordPair extends AppCompatActivity implements MainContract.ViewExer
     final private int VIEW_COUNT = 5;
 
     private EditText wordsWatch;
-    private int countRightAnswer = 0;
+    private Button checkAnswer;
+    private int countPoint = 0;
     private int timeViewWords = 500;
     private Boolean state = false;
+    private Integer counterBackground = 0;
     private Integer counter = 0;
-    private String rightAsnwer;
+    private String rightAnswer;
     private PresenterWordPair presenter;
 
     @Override
@@ -35,7 +40,9 @@ public class WordPair extends AppCompatActivity implements MainContract.ViewExer
     @Override
     public void init() {
         wordsWatch = (EditText) findViewById(R.id.wordsWatch);
-        presenter = new PresenterWordPair();
+        checkAnswer = (Button) findViewById(R.id.checkAnswer);
+        presenter = new PresenterWordPair(getApplicationContext());
+        rightAnswer = presenter.getWords();
     }
 
     @Override
@@ -46,7 +53,7 @@ public class WordPair extends AppCompatActivity implements MainContract.ViewExer
         handler.post(new Runnable() {
             @Override
             public void run() {
-                ++counter;
+                ++counterBackground;
                 if (state) {
                     state = false;
                     wordsWatch.setBackground(getResources().getDrawable(R.drawable.border_edit));
@@ -55,9 +62,9 @@ public class WordPair extends AppCompatActivity implements MainContract.ViewExer
                     wordsWatch.setBackground(getResources().getDrawable(R.color.colorWhite));
                 }
                 handler.postDelayed(this, BORDER_CHANGE_TIME);
-                if (counter == VIEW_COUNT) {
+                if (counterBackground == VIEW_COUNT) {
                     handler.removeCallbacks(this);
-                    counter = 0;
+                    counterBackground = 0;
                     state = false;
                     startExercise();
                 }
@@ -67,8 +74,9 @@ public class WordPair extends AppCompatActivity implements MainContract.ViewExer
 
     @Override
     public void startExercise() {
-        rightAsnwer = presenter.getWords();
-        wordsWatch.setText("гном пока");
+        checkAnswer.setClickable(true);
+        rightAnswer = presenter.getWords();
+        wordsWatch.setText(rightAnswer);
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -81,30 +89,35 @@ public class WordPair extends AppCompatActivity implements MainContract.ViewExer
 
     @Override
     public void checkAnswer(View view) {
+        checkAnswer.setClickable(false);
         String answer = wordsWatch.getText().toString().toLowerCase();
-        //добавить точку входа
-        String rightAnswer = "гном пока";
-        if (answer.equals(rightAnswer)) {
+        ++counter;
+        if (answer.equals(rightAnswer.toLowerCase())) {
             wordsWatch.setBackground(getResources().getDrawable(R.color.yellow));
-            ++countRightAnswer;
-            // добавить счетчик
-        } else wordsWatch.setBackground(getResources().getDrawable(R.color.red));
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                preparationToStart();
-            }
-        }, 1000);
+            countPoint += presenter.getLevel();
+            presenter.changeLevel(true);
+        } else {
+            wordsWatch.setBackground(getResources().getDrawable(R.color.red));
+            presenter.changeLevel(false);
+        }
+        if (counter < COUNT_TEST) {
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    preparationToStart();
+                }
+            }, 1000);
+        } else exerciseEnd();
     }
 
-    @Override
-    public int changeLevel(int nowLevel, boolean lastAnswer) {
-        return 0;
-    }
+
 
     @Override
     public void exerciseEnd() {
-
+        Intent intent = new Intent(WordPair.this, ResultExercise.class);
+        startActivity(intent);
+        //добавть результат countPoint
+        presenter.setResult(countPoint);
     }
 }
