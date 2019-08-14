@@ -19,6 +19,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_NAME = "name";
     public static final String COLUMN_YEAR = "year";
+    public static final String COLUMN_WORD_PAIR = "wordPair";
     public static final String TABLE = "one";
 
     private SQLiteDatabase mDataBase;

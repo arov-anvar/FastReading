@@ -13,15 +13,15 @@
 
     <!-- Word Pair-->
     <string-array name="word_pair_4">
-        <item>Гонг</item>
-        <item>Гриф</item>
-        <item>Гимн</item>
-        <item>Горн</item>
-        <item>Грош</item>
-        <item>Гнев</item>
-        <item>Гран</item>
-        <item>Гурт</item>
-        <item>Гала</item>
+        <item>1111</item>
+        <item>2222</item>
+        <item>3333</item>
+        <item>4444</item>
+        <item>5555</item>
+        <item>6666</item>
+        <item>7777</item>
+        <item>8888</item>
+        <item>9999</item>
     </string-array>
     <string-array name="word_pair_5">
         <item>1Гонг</item>

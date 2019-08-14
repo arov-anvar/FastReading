@@ -11,6 +11,7 @@ import android.widget.EditText;
 import com.example.fastreding.MainContract;
 import com.example.fastreding.R;
 import com.example.fastreding.View.ResultExercise;
+import com.example.fastreding.db.DatabaseHelper;
 import com.example.fastreding.present.*;
 
 public class WordPair extends AppCompatActivity implements MainContract.ViewExercise {
@@ -21,7 +22,7 @@ public class WordPair extends AppCompatActivity implements MainContract.ViewExer
 
     private EditText wordsWatch;
     private Button checkAnswer;
-    private int countPoint = 0;
+    private Integer countPoint = 0;
     private int timeViewWords = 500;
     private Boolean state = false;
     private Integer counterBackground = 0;
@@ -74,7 +75,6 @@ public class WordPair extends AppCompatActivity implements MainContract.ViewExer
 
     @Override
     public void startExercise() {
-        checkAnswer.setClickable(true);
         rightAnswer = presenter.getWords();
         wordsWatch.setText(rightAnswer);
         final Handler handler = new Handler();
@@ -83,6 +83,7 @@ public class WordPair extends AppCompatActivity implements MainContract.ViewExer
             public void run() {
                 wordsWatch.setText("");
                 wordsWatch.setClickable(true);
+                checkAnswer.setClickable(true);
             }
         }, timeViewWords);
     }
@@ -115,9 +116,12 @@ public class WordPair extends AppCompatActivity implements MainContract.ViewExer
 
     @Override
     public void exerciseEnd() {
-        Intent intent = new Intent(WordPair.this, ResultExercise.class);
-        startActivity(intent);
         //добавть результат countPoint
         presenter.setResult(countPoint);
+
+        Intent intent = new Intent(WordPair.this, ResultExercise.class);
+        intent.putExtra("countPoint", countPoint.toString());               //передача количесво очков
+        intent.putExtra("tableName", DatabaseHelper.COLUMN_WORD_PAIR);      //передача название упражнения
+        startActivity(intent);
     }
 }

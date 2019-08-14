@@ -67,7 +67,7 @@ public class PresenterWordPair implements MainContract.Presenter {
 
     @Override
     public void setResult(int point) {
-
+        // добавление в бд результата
     }
 
     public Integer getLevel() {
@@ -77,6 +77,6 @@ public class PresenterWordPair implements MainContract.Presenter {
     public void changeLevel(boolean ans) {
         if (ans) ++level;
         else --level;
-        if (level < 0) level = 0;
+        if (level < 1) level = 1;
     }
 }
