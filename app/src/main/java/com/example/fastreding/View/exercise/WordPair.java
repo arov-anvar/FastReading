@@ -19,6 +19,7 @@ public class WordPair extends AppCompatActivity implements MainContract.ViewExer
     final private int BORDER_CHANGE_TIME = 200;
     final private int COUNT_TEST = 10;
     final private int VIEW_COUNT = 5;
+    final private String name = "Слово-пары";
 
     private EditText wordsWatch;
     private Button checkAnswer;
@@ -121,7 +122,7 @@ public class WordPair extends AppCompatActivity implements MainContract.ViewExer
 
         Intent intent = new Intent(WordPair.this, ResultExercise.class);
         intent.putExtra("countPoint", countPoint.toString());               //передача количесво очков
-        intent.putExtra("tableName", DatabaseHelper.COLUMN_WORD_PAIR);      //передача название упражнения
+        intent.putExtra("tableName", this.name);      //передача название упражнения
         startActivity(intent);
     }
 }

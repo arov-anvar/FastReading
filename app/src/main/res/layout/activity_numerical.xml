@@ -1,9 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".View.exercise.Numerical">
 
-</android.support.constraint.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/inputBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
+        android:background="@color/blue">
+
+        <EditText
+            android:id="@+id/viewNumerical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:focusable="false"
+            android:text="@string/under_line_6"
+            android:textAlignment="center"
+            android:textSize="50sp" />
+
+    </LinearLayout>
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="8dp"
+        android:columnCount="3"
+        android:orientation="horizontal"
+        android:rowCount="4">
+
+
+        <Button
+            android:layout_margin="3dp"
+            android:background="@color/blue"
+            android:onClick="checkClickNumber"
+            android:text="@string/one"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_cell" />
+
+        <Button
+            android:layout_margin="3dp"
+            android:background="@color/blue"
+            android:onClick="checkClickNumber"
+            android:text="@string/two"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_cell" />
+
+        <Button
+            android:layout_margin="3dp"
+            android:background="@color/blue"
+            android:onClick="checkClickNumber"
+            android:text="@string/three"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_cell" />
+
+        <Button
+            android:layout_margin="3dp"
+            android:background="@color/blue"
+            android:onClick="checkClickNumber"
+            android:text="@string/four"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_cell" />
+
+        <Button
+            android:layout_margin="3dp"
+            android:background="@color/blue"
+            android:onClick="checkClickNumber"
+            android:text="@string/five"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_cell" />
+
+        <Button
+            android:layout_margin="3dp"
+            android:background="@color/blue"
+            android:onClick="checkClickNumber"
+            android:text="@string/six"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_cell" />
+
+        <Button
+            android:layout_margin="3dp"
+            android:background="@color/blue"
+            android:onClick="checkClickNumber"
+            android:text="@string/seven"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_cell" />
+
+        <Button
+            android:layout_margin="3dp"
+            android:background="@color/blue"
+            android:onClick="checkClickNumber"
+            android:text="@string/eight"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_cell" />
+
+        <Button
+            android:layout_margin="3dp"
+            android:background="@color/blue"
+            android:onClick="checkClickNumber"
+            android:text="@string/nine"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_cell" />
+
+        <Button
+            android:layout_columnSpan="2"
+            android:layout_columnWeight="1"
+            android:layout_margin="3dp"
+            android:background="@color/blue"
+            android:onClick="checkClickNumber"
+            android:text="@string/zero"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_cell" />
+
+        <Button
+            android:layout_margin="3dp"
+            android:background="@color/blue"
+            android:onClick="checkClickNumber"
+            android:text="@string/one"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_cell" />
+
+
+    </GridLayout>
+
+</LinearLayout>

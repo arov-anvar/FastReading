@@ -12,15 +12,22 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    private static String DB_NAME = "first.db";
+    private static String DB_NAME = "dataReading.db";
     private static String DB_PATH = "";
     private static final int DB_VERSION = 1;
 
     public static final String COLUMN_ID = "_id";
-    public static final String COLUMN_NAME = "name";
-    public static final String COLUMN_YEAR = "year";
-    public static final String COLUMN_WORD_PAIR = "wordPair";
-    public static final String TABLE = "one";
+    public static final String COLUMN_USERS_ID = "users_id";
+    public static final String COLUMN_COUNT_POINT = "count_point";
+    public static final String TABLE_WORD_PAIR = "wordpair";
+    public static final String TABLE_USERS = "users";
+    public static final String TABLE_SCHULTE = "tableschulte";
+    public static final String TABLE_SUGGESTIONS = "suggestions";
+    public static final String TABLE_SEARCH_LETTER = "searchletter";
+    public static final String TABLE_READING_SPEED = "readingspeed";
+    public static final String TABLE_NUMERICAL = "numerical";
+    public static final String TABLE_EVEN_NUMBERS = "evennumbers";
+    public static final String TABLE_DIFFERENT_WORDS = "differentwords";
 
     private SQLiteDatabase mDataBase;
     private final Context mContext;
