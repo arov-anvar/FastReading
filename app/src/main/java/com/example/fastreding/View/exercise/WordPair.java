@@ -113,16 +113,16 @@ public class WordPair extends AppCompatActivity implements MainContract.ViewExer
         } else exerciseEnd();
     }
 
-
-
     @Override
     public void exerciseEnd() {
-        //добавть результат countPoint
+        //добавление результа упражнения
         presenter.setResult(countPoint);
 
         Intent intent = new Intent(WordPair.this, ResultExercise.class);
-        intent.putExtra("countPoint", countPoint.toString());               //передача количесво очков
-        intent.putExtra("tableName", this.name);      //передача название упражнения
+        intent.putExtra("countPoint", countPoint.toString());       //передача количесво очков
+        intent.putExtra("exerciseName", this.name);                 //         название упражнения
+        intent.putExtra("record", presenter.getRecord().toString());//         рекорда
+        intent.putIntegerArrayListExtra("pastResults", presenter.getPastResult());
         startActivity(intent);
     }
 }
