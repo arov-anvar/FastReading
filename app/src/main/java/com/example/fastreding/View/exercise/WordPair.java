@@ -1,7 +1,9 @@
 package com.example.fastreding.View.exercise;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -30,6 +32,7 @@ public class WordPair extends AppCompatActivity implements MainContract.ViewExer
     private Integer counter = 0;
     private String rightAnswer;
     private PresenterWordPair presenter;
+    private SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,6 +120,10 @@ public class WordPair extends AppCompatActivity implements MainContract.ViewExer
     public void exerciseEnd() {
         //добавление результа упражнения
         presenter.setResult(countPoint);
+
+        // Добавление уровня по оканчанию игры
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        preferences.edit().putInt("level", countPoint).apply();
 
         Intent intent = new Intent(WordPair.this, ResultExercise.class);
         intent.putExtra("countPoint", countPoint.toString());       //передача количесво очков

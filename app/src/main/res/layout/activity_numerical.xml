@@ -23,7 +23,6 @@
             android:layout_height="wrap_content"
             android:background="@null"
             android:focusable="false"
-            android:text="@string/under_line_6"
             android:textAlignment="center"
             android:textSize="50sp" />
 
