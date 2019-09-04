@@ -3,10 +3,17 @@ package com.example.fastreding.present;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.preference.PreferenceManager;
 
 import com.example.fastreding.MainContract;
+import com.example.fastreding.db.DatabaseHelper;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Dictionary;
 import java.util.Random;
 
 public class PresenterNumerical implements MainContract.Presenter {
@@ -14,8 +21,11 @@ public class PresenterNumerical implements MainContract.Presenter {
     private Context context;
     private int level;
     SharedPreferences preferences;
+    private DatabaseHelper dbHelper;
+    private SQLiteDatabase db;
+    private Cursor cursor;
 
-    PresenterNumerical(Context context) {
+    public PresenterNumerical(Context context) {
         this.context = context;
         preferences = PreferenceManager.getDefaultSharedPreferences(context);
         level = preferences.getInt("level", 0);
@@ -52,7 +62,8 @@ public class PresenterNumerical implements MainContract.Presenter {
         return 0;
     }
 
-    public String createUnderLine(int count) {
+    public String createUnderLine() {
+        int count = getCountNumericalFromLevel();
         String numberString = "";
         for (int i = 0; i < count; ++i) {
             numberString += i == count - 1 ? "_" : "_" + " ";
@@ -71,5 +82,40 @@ public class PresenterNumerical implements MainContract.Presenter {
         }
 
         return numberString;
+    }
+
+    public void changeLevel(boolean ans) {
+        if (ans) ++level;
+        else --level;
+        if (level < 1) level = 1;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void initDb() {
+        dbHelper = new DatabaseHelper(context);
+        db = dbHelper.getReadableDatabase();
+    }
+
+    public ArrayList<Integer> getPastResult() {
+        initDb();
+        ArrayList<Integer> outArray = new ArrayList<>();
+        cursor = db.rawQuery("SELECT * FROM " + DatabaseHelper.TABLE_NUMERICAL, null);
+        if (cursor.getCount() < 1) return null;
+        cursor.moveToFirst();
+        for (int i = 0; i < cursor.getCount(); ++i) {
+            outArray.add(cursor.getInt(1));//уточнить какой столбец
+            cursor.moveToNext();
+        }
+        db.close();
+        return outArray;
+    }
+
+    public Integer getRecord() {
+        ArrayList<Integer> array = getPastResult();
+        if (array == null) return 0;
+        return Collections.max(array);
     }
 }

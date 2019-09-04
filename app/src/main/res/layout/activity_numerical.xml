@@ -43,7 +43,7 @@
         <Button
             android:layout_margin="3dp"
             android:background="@color/blue"
-            android:onClick="checkClickNumber"
+            android:onClick="checkAnswer"
             android:text="@string/one"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_cell" />
@@ -51,7 +51,7 @@
         <Button
             android:layout_margin="3dp"
             android:background="@color/blue"
-            android:onClick="checkClickNumber"
+            android:onClick="checkAnswer"
             android:text="@string/two"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_cell" />
@@ -59,7 +59,7 @@
         <Button
             android:layout_margin="3dp"
             android:background="@color/blue"
-            android:onClick="checkClickNumber"
+            android:onClick="checkAnswer"
             android:text="@string/three"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_cell" />
@@ -67,7 +67,7 @@
         <Button
             android:layout_margin="3dp"
             android:background="@color/blue"
-            android:onClick="checkClickNumber"
+            android:onClick="checkAnswer"
             android:text="@string/four"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_cell" />
@@ -75,7 +75,7 @@
         <Button
             android:layout_margin="3dp"
             android:background="@color/blue"
-            android:onClick="checkClickNumber"
+            android:onClick="checkAnswer"
             android:text="@string/five"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_cell" />
@@ -83,7 +83,7 @@
         <Button
             android:layout_margin="3dp"
             android:background="@color/blue"
-            android:onClick="checkClickNumber"
+            android:onClick="checkAnswer"
             android:text="@string/six"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_cell" />
@@ -91,7 +91,7 @@
         <Button
             android:layout_margin="3dp"
             android:background="@color/blue"
-            android:onClick="checkClickNumber"
+            android:onClick="checkAnswer"
             android:text="@string/seven"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_cell" />
@@ -99,7 +99,7 @@
         <Button
             android:layout_margin="3dp"
             android:background="@color/blue"
-            android:onClick="checkClickNumber"
+            android:onClick="checkAnswer"
             android:text="@string/eight"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_cell" />
@@ -107,7 +107,7 @@
         <Button
             android:layout_margin="3dp"
             android:background="@color/blue"
-            android:onClick="checkClickNumber"
+            android:onClick="checkAnswer"
             android:text="@string/nine"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_cell" />
@@ -117,7 +117,7 @@
             android:layout_columnWeight="1"
             android:layout_margin="3dp"
             android:background="@color/blue"
-            android:onClick="checkClickNumber"
+            android:onClick="checkAnswer"
             android:text="@string/zero"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_cell" />
@@ -125,7 +125,7 @@
         <Button
             android:layout_margin="3dp"
             android:background="@color/blue"
-            android:onClick="checkClickNumber"
+            android:onClick="checkAnswer"
             android:text="@string/one"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_cell" />
