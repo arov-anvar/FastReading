@@ -46,9 +46,6 @@ public class Numerical extends AppCompatActivity implements MainContract.ViewExe
         preparationToStart();
     }
 
-    public void checkClickNumber(View view) {
-
-    }
 
     // инициализация переменных
     @Override
@@ -89,6 +86,7 @@ public class Numerical extends AppCompatActivity implements MainContract.ViewExe
     public void startExercise() {
         rightAnswer = presenter.createStringNumerical(presenter.getCountNumericalFromLevel());
         viewNumerical.setText(rightAnswer);
+        timeViewNumerical = presenter.getTimeFromLevel();
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -144,6 +142,7 @@ public class Numerical extends AppCompatActivity implements MainContract.ViewExe
         intent.putExtra("record", presenter.getRecord().toString());//         рекорда
         intent.putIntegerArrayListExtra("pastResults", presenter.getPastResult());
         startActivity(intent);
+        this.finish();
 
     }
 }

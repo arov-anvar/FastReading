@@ -29,11 +29,18 @@ public class PresenterNumerical implements MainContract.Presenter {
         this.context = context;
         preferences = PreferenceManager.getDefaultSharedPreferences(context);
         level = preferences.getInt("level", 0);
+        initDb();
     }
 
     @Override
     public void setResult(int point) {
-
+        db = dbHelper.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(DatabaseHelper.COLUMN_COUNT_POINT, point);
+        // надо доработать id пользователя
+        cv.put(DatabaseHelper.COLUMN_USERS_ID, 1);
+        db.insert(DatabaseHelper.TABLE_NUMERICAL, null, cv);
+        db.close();
     }
 
     public int getTimeFromLevel() {
@@ -100,7 +107,7 @@ public class PresenterNumerical implements MainContract.Presenter {
     }
 
     public ArrayList<Integer> getPastResult() {
-        initDb();
+        db = dbHelper.getReadableDatabase();
         ArrayList<Integer> outArray = new ArrayList<>();
         cursor = db.rawQuery("SELECT * FROM " + DatabaseHelper.TABLE_NUMERICAL, null);
         if (cursor.getCount() < 1) return null;

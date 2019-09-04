@@ -131,5 +131,6 @@ public class WordPair extends AppCompatActivity implements MainContract.ViewExer
         intent.putExtra("record", presenter.getRecord().toString());//         рекорда
         intent.putIntegerArrayListExtra("pastResults", presenter.getPastResult());
         startActivity(intent);
+        this.finish();
     }
 }
