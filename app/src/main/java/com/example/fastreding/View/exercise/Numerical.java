@@ -56,7 +56,6 @@ public class Numerical extends AppCompatActivity implements MainContract.ViewExe
 
     }
 
-    @Override
     public void preparationToStart() {
         final Handler handler = new Handler();
         viewNumerical.setText("");
@@ -82,7 +81,6 @@ public class Numerical extends AppCompatActivity implements MainContract.ViewExe
         });
     }
 
-    @Override
     public void startExercise() {
         rightAnswer = presenter.createStringNumerical(presenter.getCountNumericalFromLevel());
         viewNumerical.setText(rightAnswer);
@@ -96,7 +94,6 @@ public class Numerical extends AppCompatActivity implements MainContract.ViewExe
         }, timeViewNumerical);
     }
 
-    @Override
     public void checkAnswer(View view) {
         Button button = (Button) view;
         String symbol = button.getText().toString();

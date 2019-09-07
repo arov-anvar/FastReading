@@ -1,46 +1,37 @@
 package com.example.fastreding.present;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.preference.PreferenceManager;
-
 import com.example.fastreding.MainContract;
 import com.example.fastreding.db.DatabaseHelper;
+import com.example.fastreding.db.Model;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Dictionary;
 import java.util.Random;
 
 public class PresenterNumerical implements MainContract.Presenter {
 
     private Context context;
     private int level;
-    SharedPreferences preferences;
-    private DatabaseHelper dbHelper;
-    private SQLiteDatabase db;
-    private Cursor cursor;
+    private SharedPreferences preferences;
+    private Model model;
 
     public PresenterNumerical(Context context) {
         this.context = context;
         preferences = PreferenceManager.getDefaultSharedPreferences(context);
         level = preferences.getInt("level", 0);
-        initDb();
+        model = new Model(context);
     }
 
     @Override
     public void setResult(int point) {
-        db = dbHelper.getWritableDatabase();
-        ContentValues cv = new ContentValues();
-        cv.put(DatabaseHelper.COLUMN_COUNT_POINT, point);
-        // надо доработать id пользователя
-        cv.put(DatabaseHelper.COLUMN_USERS_ID, 1);
-        db.insert(DatabaseHelper.TABLE_NUMERICAL, null, cv);
-        db.close();
+        model.setResult(DatabaseHelper.TABLE_NUMERICAL, point);
+    }
+
+    public ArrayList<Integer> getPastResult() {
+        return model.getPastResult(DatabaseHelper.TABLE_NUMERICAL);
     }
 
     public int getTimeFromLevel() {
@@ -99,25 +90,6 @@ public class PresenterNumerical implements MainContract.Presenter {
 
     public int getLevel() {
         return level;
-    }
-
-    public void initDb() {
-        dbHelper = new DatabaseHelper(context);
-        db = dbHelper.getReadableDatabase();
-    }
-
-    public ArrayList<Integer> getPastResult() {
-        db = dbHelper.getReadableDatabase();
-        ArrayList<Integer> outArray = new ArrayList<>();
-        cursor = db.rawQuery("SELECT * FROM " + DatabaseHelper.TABLE_NUMERICAL, null);
-        if (cursor.getCount() < 1) return null;
-        cursor.moveToFirst();
-        for (int i = 0; i < cursor.getCount(); ++i) {
-            outArray.add(cursor.getInt(1));//уточнить какой столбец
-            cursor.moveToNext();
-        }
-        db.close();
-        return outArray;
     }
 
     public Integer getRecord() {

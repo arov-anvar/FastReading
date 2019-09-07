@@ -24,6 +24,9 @@
     <string name="nine">9</string>
 
     <string name="under_line_6">_ _ _ _ _ _</string>
+    <string name="letter">буква: </string>
+    <string name="left">осталось: </string>
+    <string name="ten">10</string>
 
 
 </resources>

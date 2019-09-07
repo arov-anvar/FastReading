@@ -50,7 +50,6 @@ public class WordPair extends AppCompatActivity implements MainContract.ViewExer
         rightAnswer = presenter.getWords();
     }
 
-    @Override
     public void preparationToStart() {
         final Handler handler = new Handler();
         wordsWatch.setClickable(false);
@@ -77,7 +76,6 @@ public class WordPair extends AppCompatActivity implements MainContract.ViewExer
         });
     }
 
-    @Override
     public void startExercise() {
         rightAnswer = presenter.getWords();
         wordsWatch.setText(rightAnswer);
@@ -92,7 +90,6 @@ public class WordPair extends AppCompatActivity implements MainContract.ViewExer
         }, timeViewWords);
     }
 
-    @Override
     public void checkAnswer(View view) {
         checkAnswer.setClickable(false);
         String answer = wordsWatch.getText().toString().toLowerCase();

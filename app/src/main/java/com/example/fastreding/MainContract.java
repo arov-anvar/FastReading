@@ -6,9 +6,9 @@ public interface MainContract {
 
     interface ViewExercise {
         void init();
-        void preparationToStart();
-        void startExercise();
-        void checkAnswer(View view);
+//        void preparationToStart();
+//        void startExercise();
+//        void checkAnswer(View view);
         void exerciseEnd();
     }
 
