@@ -16,14 +16,10 @@ import java.util.Random;
 public class PresenterSearchLetter implements MainContract.Presenter {
 
     private String rightLetter;
-    private SharedPreferences preferences;
-    private Context context;
     private Model model;
 
 
     public PresenterSearchLetter(Context context) {
-        this.context = context;
-        preferences = PreferenceManager.getDefaultSharedPreferences(context);
         model = new Model(context);
     }
 
@@ -79,5 +75,9 @@ public class PresenterSearchLetter implements MainContract.Presenter {
         }
 
         return arr;
+    }
+
+    public Integer getRecord() {
+        return Collections.max(getPastResult());
     }
 }

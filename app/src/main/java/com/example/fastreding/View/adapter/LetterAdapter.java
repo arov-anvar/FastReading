@@ -12,22 +12,22 @@ import com.example.fastreding.R;
 public class LetterAdapter extends BaseAdapter {
 
     private Context mContext;
-    private String[] letters;
+    private String[] data;
 
-    public LetterAdapter(Context context, String[] letters) {
+    public LetterAdapter(Context context, String[] data) {
         this.mContext = context;
-        this.letters = letters;
+        this.data = data;
     }
 
 
     @Override
     public int getCount() {
-        return letters.length;
+        return data.length;
     }
 
     @Override
     public Object getItem(int position) {
-        return letters[position];
+        return data[position];
     }
 
     @Override
@@ -40,7 +40,7 @@ public class LetterAdapter extends BaseAdapter {
         final TextView letterTextView = new TextView(mContext);
         letterTextView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         letterTextView.setPadding(3, 3, 3, 3);
-        letterTextView.setText(letters[position]);
+        letterTextView.setText(data[position]);
         letterTextView.setTextSize(30f);
         letterTextView.setTextColor(mContext.getResources().getColor(R.color.black));
         return letterTextView;

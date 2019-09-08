@@ -1,5 +1,7 @@
 package com.example.fastreding.View.exercise;
 
+import android.content.Intent;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,16 +11,20 @@ import android.widget.TextView;
 
 import com.example.fastreding.MainContract;
 import com.example.fastreding.R;
+import com.example.fastreding.View.ResultExercise;
 import com.example.fastreding.View.adapter.LetterAdapter;
 import com.example.fastreding.present.PresenterSearchLetter;
 
 import org.w3c.dom.Text;
 
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class SearchLetter extends AppCompatActivity implements MainContract.ViewExercise {
 
     private final String TEN = "10";
+    private final String NAME = "Поиск букв";
 
     private GridView gridLetter;
     private LetterAdapter myAdapter;
@@ -27,6 +33,7 @@ public class SearchLetter extends AppCompatActivity implements MainContract.View
     private TextView textViewCountLeft;
     private Integer countLeft = 10;
     private Integer countPoint = 0;
+    private Timer mTimer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +41,13 @@ public class SearchLetter extends AppCompatActivity implements MainContract.View
         setContentView(R.layout.activity_search_letter);
         init();
         createNewDataInAdapter();
+
+        mTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                exerciseEnd();
+            }
+        }, 60000);
 
         gridLetter.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -62,6 +76,7 @@ public class SearchLetter extends AppCompatActivity implements MainContract.View
 
     public void init() {
         presenter = new PresenterSearchLetter(getApplicationContext());
+        mTimer = new Timer();
         textViewRightLetter = (TextView) findViewById(R.id.right_letter);
         textViewCountLeft = (TextView) findViewById(R.id.countLeft);
         gridLetter = (GridView) findViewById(R.id.gridLetter);
@@ -69,7 +84,16 @@ public class SearchLetter extends AppCompatActivity implements MainContract.View
 
     @Override
     public void exerciseEnd() {
+        //добавление результа упражнения
+        presenter.setResult(countPoint);
 
+        Intent intent = new Intent(SearchLetter.this, ResultExercise.class);
+        intent.putExtra("countPoint", countPoint.toString());       //передача количесво очков
+        intent.putExtra("exerciseName", this.NAME);                 //         название упражнения
+        intent.putExtra("record", presenter.getRecord().toString());//         рекорда
+        intent.putIntegerArrayListExtra("pastResults", presenter.getPastResult());
+        startActivity(intent);
+        this.finish();
     }
 
 }
