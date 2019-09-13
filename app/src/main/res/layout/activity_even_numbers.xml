@@ -44,16 +44,4 @@
         android:stretchMode="spacingWidthUniform"
         android:verticalSpacing="2dp" />
 
-    <GridView
-        android:id="@+id/gridExample"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:columnWidth="100dp"
-        android:horizontalSpacing="2dp"
-        android:numColumns="4"
-        android:padding="3dp"
-        android:stretchMode="spacingWidthUniform"
-        android:verticalSpacing="2dp" />
-
 </LinearLayout>

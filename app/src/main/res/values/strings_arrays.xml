@@ -67,4 +67,39 @@
         <item>Гурт</item>
         <item>Гала</item>
     </string-array>
+
+
+    <!-- Different words-->
+
+    <string-array name="different_words">
+        <item>Гонг</item>
+        <item>Гриф</item>
+        <item>Гимн</item>
+        <item>Горн</item>
+        <item>Грош</item>
+        <item>Гнев</item>
+        <item>Гран</item>
+        <item>Гурт</item>
+        <item>Гала</item>
+        <item>1Гонг</item>
+        <item>1Гриф</item>
+        <item>1Гимн</item>
+        <item>1Горн</item>
+        <item>1Грош</item>
+        <item>1Гнев</item>
+        <item>1Гран</item>
+        <item>1Гурт</item>
+        <item>1Гала</item>
+        <item>1111</item>
+        <item>2222</item>
+        <item>3333</item>
+        <item>4444</item>
+        <item>5555</item>
+        <item>6666</item>
+        <item>7777</item>
+        <item>8888</item>
+        <item>9999</item>
+    </string-array>
+
+
 </resources>
