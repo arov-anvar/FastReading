@@ -5,6 +5,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.TextView;
+
 import com.example.fastreding.R;
 
 public class DifferentWordsAdapter extends BaseAdapter {
@@ -34,10 +36,12 @@ public class DifferentWordsAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        final Button btn = new Button(mContext);
-        btn.setText(words[position]);
-        btn.setTextSize(20f);
-        btn.setTextColor(mContext.getResources().getColor(R.color.black));
-        return btn;
+        final TextView txt = new TextView(mContext);
+        txt.setText(words[position]);
+        txt.setTextSize(20f);
+        txt.setTextColor(mContext.getResources().getColor(R.color.black));
+        txt.setBackgroundColor(mContext.getResources().getColor(R.color.white));
+        txt.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        return txt;
     }
 }

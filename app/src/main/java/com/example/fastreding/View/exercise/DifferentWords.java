@@ -24,7 +24,7 @@ import java.util.TimerTask;
 
 public class DifferentWords extends AppCompatActivity implements MainContract.ViewExercise{
 
-    private final String TEN = "10";
+    private final String FIVE= "5";
     private final String NAME = "разные слова";
     private GridView gridWords;
     private TextView countLeftWords;
@@ -47,20 +47,20 @@ public class DifferentWords extends AppCompatActivity implements MainContract.Vi
                 exerciseEnd();
             }
         }, 60000);
-
         gridWords.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Button btn = (Button) view;
-                String[] arr = btn.getText().toString().split("\n");
+                //Button btn = (Button) view;
+                TextView txt = (TextView) view;
+                String[] arr = txt.getText().toString().split("\n");
                 if (!arr[0].equals(arr[1])) {
-                    btn.setBackgroundResource(R.color.yellow);
+                    txt.setBackgroundResource(R.color.yellow);
                     --countLeft;
                     countPoint += 2;
                     countLeftWords.setText(countLeft.toString());
                 }
                 if (countLeft == 0) {
-                    countLeftWords.setText(TEN);
+                    countLeftWords.setText(FIVE);
                     countLeft = 10;
                     createNewDataInAdapter();
                 }
