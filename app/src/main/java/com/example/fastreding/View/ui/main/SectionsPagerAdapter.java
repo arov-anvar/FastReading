@@ -35,10 +35,10 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
                 fragment = new FragmentExercise();
                 break;
             case 1:
-                fragment = new FragmentExercise();
+                fragment = new FragmentTraining();
                 break;
             case 2:
-                fragment = new FragmentExercise();
+                fragment = new FragmentStatistic();
                 break;
         }
         return fragment;
