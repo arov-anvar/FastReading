@@ -13,7 +13,9 @@
             android:name=".View.ResultExercise"
             android:screenOrientation="portrait"/>
         <activity android:name=".View.exercise.ReadingSpeed" />
-        <activity android:name=".View.exercise.Suggestions" />
+        <activity
+            android:name=".View.exercise.Suggestions"
+            android:screenOrientation="landscape"/>
         <activity android:name=".View.exercise.DifferentWords" />
         <activity android:name=".View.exercise.EvenNumbers" />
         <activity android:name=".View.exercise.SearchLetter" />

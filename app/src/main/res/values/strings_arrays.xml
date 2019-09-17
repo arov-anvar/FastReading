@@ -101,5 +101,21 @@
         <item>9999</item>
     </string-array>
 
+    <!-- Suggestion -->
+
+    <string-array name="suggestion">
+        <item>aaaaaaa aaaaaaa aaaa</item>
+        <item>sssssssss ssssss sssss</item>
+        <item>ddddd d dddddddd dddd</item>
+        <item>vvvvvvvv vvvvvvvv vv</item>
+        <item>d1111111as  sfsfasfa s </item>
+        <item>sfafs d afds sa</item>
+        <item>sa dfsaf as</item>
+        <item>asfd sfasfasf</item>
+        <item>asdfaf asdafs aasd</item>
+        <item>asdfasfa sfa</item>
+        <item>asdfafafas</item>
+    </string-array>
+
 
 </resources>
