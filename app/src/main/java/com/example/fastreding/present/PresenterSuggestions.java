@@ -58,17 +58,6 @@ public class PresenterSuggestions implements MainContract.Presenter {
         return model.getPastResult(DatabaseHelper.TABLE_SUGGESTIONS);
     }
 
-//    private String[] mixArray(String[] arr) {
-//        Random random = new Random();
-//        for (int i = 1; i < arr.length; i++) {
-//            int j = random.nextInt(i);
-//            String str = arr[i];
-//            arr[i] = arr[j];
-//            arr[j] = str;
-//        }
-//        return arr;
-//    }
-
     public String getSuggestion() {
         Random r = new Random();
         String[] arrWords = context.getResources().getStringArray(R.array.suggestion);

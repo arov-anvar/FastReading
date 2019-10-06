@@ -9,13 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".View.SpinnerLoadActivity"></activity>
         <activity
             android:name=".View.ResultExercise"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity android:name=".View.exercise.ReadingSpeed" />
         <activity
             android:name=".View.exercise.Suggestions"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="landscape" />
         <activity android:name=".View.exercise.DifferentWords" />
         <activity android:name=".View.exercise.EvenNumbers" />
         <activity android:name=".View.exercise.SearchLetter" />
@@ -23,8 +24,8 @@
         <activity android:name=".View.exercise.TableSchulte" />
         <activity
             android:name=".View.exercise.WordPair"
-            android:screenOrientation="landscape"
-            android:noHistory="true"/>
+            android:noHistory="true"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".View.Training"
             android:label="@string/title_activity_traning"
