@@ -9,14 +9,16 @@ import android.widget.TextView;
 
 import com.example.fastreding.R;
 
+import java.util.List;
+
 public class TableSchulteAdapter extends BaseAdapter {
 
 
     private Context mContext;
-    private String[] numbers;
+    private List<String> numbers;
     private int widthDisplay;
 
-    public TableSchulteAdapter(Context context, String[] numbers, int widthDisplay) {
+    public TableSchulteAdapter(Context context, List<String> numbers, int widthDisplay) {
         this.mContext = context;
         this.numbers = numbers;
         this.widthDisplay = widthDisplay;
@@ -24,12 +26,12 @@ public class TableSchulteAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return numbers.length;
+        return numbers.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return numbers[position];
+        return numbers.get(position);
     }
 
     @Override
@@ -40,7 +42,7 @@ public class TableSchulteAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         final TextView txt = new TextView(mContext);
-        txt.setText(numbers[position]);
+        txt.setText(numbers.get(position));
         txt.setTextSize(20f);
         txt.setTextColor(mContext.getResources().getColor(R.color.black));
         txt.setBackgroundColor(mContext.getResources().getColor(R.color.white));
@@ -48,9 +50,6 @@ public class TableSchulteAdapter extends BaseAdapter {
         txt.setHeight(widthDisplay / 5 - 25);
         txt.setGravity(Gravity.CENTER);
         return txt;
-
-
-
     }
 }
 

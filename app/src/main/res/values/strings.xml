@@ -28,6 +28,9 @@
     <string name="left">осталось: </string>
     <string name="ten">10</string>
     <string name="ready">готов</string>
+    <string name="next_number">Следующее число: </string>
+    <string name="_1">1</string>
+    <string name="_0">0</string>
 
 
 </resources>

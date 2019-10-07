@@ -7,6 +7,10 @@ import android.view.Display;
 
 import com.example.fastreding.MainContract;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class PresenterTableSchulte {
 
     private Context myContext;
@@ -22,11 +26,14 @@ public class PresenterTableSchulte {
         return size.x;
     }
 
-    public String[] getArrayNumbers() {
-        String[] arr = new String[25];
-        for (Integer i = 0; i < 25; ++i) {
-            arr[i] = Integer.toString(i + 1);
+    public List<String> getArrayNumbers() {
+        List<String> array = new ArrayList<>();
+        for (Integer i = 1; i <= 25; i++) {
+            array.add(i.toString());
         }
-        return arr;
+        Collections.shuffle(array);
+        return array;
     }
+
+    // дописать
 }
