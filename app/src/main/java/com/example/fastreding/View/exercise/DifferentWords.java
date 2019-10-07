@@ -22,10 +22,11 @@ import com.example.fastreding.present.PresenterDifferentWords;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class DifferentWords extends AppCompatActivity implements MainContract.ViewExercise{
+public class DifferentWords extends AppCompatActivity implements MainContract.ViewExercise {
 
-    private final String FIVE= "5";
+    private final String FIVE = "5";
     private final String NAME = "разные слова";
+
     private GridView gridWords;
     private TextView countLeftWords;
     private PresenterDifferentWords presenter;
@@ -50,7 +51,6 @@ public class DifferentWords extends AppCompatActivity implements MainContract.Vi
         gridWords.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Button btn = (Button) view;
                 TextView txt = (TextView) view;
                 String[] arr = txt.getText().toString().split("\n");
                 if (!arr[0].equals(arr[1])) {
