@@ -38,6 +38,9 @@ public class Model {
             myCursor.moveToNext();
         }
         db.close();
+        if (outArray.size() == 0) {
+            outArray.add(0);
+        }
         return outArray;
     }
 }

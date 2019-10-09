@@ -21,6 +21,7 @@ public class TableSchulte extends AppCompatActivity implements MainContract.View
 
 
     final int MILISECOND_UPDATE = 100;
+    final String NAME = "Таблица шульта";
 
     private GridView gridNumber;
     private TextView nextNumber;
@@ -28,6 +29,7 @@ public class TableSchulte extends AppCompatActivity implements MainContract.View
     private List<String> dataNumber;
     private TableSchulteAdapter adapter;
     private PresenterTableSchulte presenter;
+    private Float time;
     private int widthDisplay;
     private boolean stateStopWatch = true;
 
@@ -54,7 +56,7 @@ public class TableSchulte extends AppCompatActivity implements MainContract.View
             @Override
             public void run() {
                 if (stateStopWatch) {
-                    Float time = Float.parseFloat(timerTextView.getText().toString()) + 0.1f;
+                    time = Float.parseFloat(timerTextView.getText().toString()) + 0.1f;
                     timerTextView.setText(String.format("%.1f", time));
                     stopWatch.postDelayed(this, MILISECOND_UPDATE);
                 }
@@ -104,7 +106,14 @@ public class TableSchulte extends AppCompatActivity implements MainContract.View
     @Override
     public void exerciseEnd () {
         stateStopWatch = false;
+        Integer countPoint = presenter.getCountPointFromTime(time);
+        presenter.setResult(countPoint);
+
         Intent intent = new Intent(TableSchulte.this, ResultExercise.class);
+        intent.putExtra("countPoint", countPoint.toString());
+        intent.putExtra("exerciseName", NAME);
+        intent.putExtra("countPoint", presenter.getRecord().toString());
         startActivity(intent);
+        this.finish();
     }
 }
