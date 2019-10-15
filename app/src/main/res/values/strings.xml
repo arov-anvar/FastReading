@@ -33,4 +33,16 @@
     <string name="_0">0</string>
 
 
+    <string name="exercise_1">Словопары</string>
+    <string name="exercise_2">Таблица Шульта</string>
+    <string name="exercise_3">Числа</string>
+    <string name="exercise_4">Поиск букв</string>
+    <string name="exercise_5">Четные числа</string>
+    <string name="exercise_6">Разные слова</string>
+    <string name="exercise_7">Предложения</string>
+    <string name="exercise_8">Скорость чтения</string>
+
+
+
+
 </resources>

@@ -5,13 +5,71 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".View.ui.main.PlaceholderFragment">
+    tools:context=".View.ui.main.PlaceholderFragment"
+    android:background="@drawable/main_background">
 
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="statistic"/>
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/chart1"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:columnCount="2">
+
+                <Button
+                    android:id="@+id/_1"
+                    android:text="@string/exercise_1"
+                    android:layout_columnWeight="1" />
+                <Button
+                    android:id="@+id/_2"
+                    android:text="@string/exercise_2"
+                    android:layout_columnWeight="1" />
+                <Button
+                    android:id="@+id/_3"
+                    android:text="@string/exercise_3"
+                    android:layout_columnWeight="1" />
+                <Button
+                    android:id="@+id/_4"
+                    android:text="@string/exercise_4"
+                    android:layout_columnWeight="1" />
+                <Button
+                    android:id="@+id/_5"
+                    android:text="@string/exercise_5"
+                    android:layout_columnWeight="1" />
+                <Button
+                    android:id="@+id/_6"
+                    android:text="@string/exercise_6"
+                    android:layout_columnWeight="1" />
+                <Button
+                    android:id="@+id/_7"
+                    android:text="@string/exercise_7"
+                    android:layout_columnWeight="1" />
+                <Button
+                    android:id="@+id/_8"
+                    android:text="@string/exercise_8"
+                    android:layout_columnWeight="1" />
+
+            </GridLayout>
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
 
 
 </LinearLayout>

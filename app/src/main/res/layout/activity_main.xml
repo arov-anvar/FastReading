@@ -5,33 +5,44 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".View.MainActivity">
+    tools:context=".View.MainActivity"
+    android:background="@drawable/main_background">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="314dp"
+        android:src="@drawable/book_open" />
 
     <Button
+        android:layout_marginTop="50dp"
         android:id="@+id/training"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="50dp"
         android:onClick="training"
+        android:background="@drawable/btn_main_back"
         android:text="@string/training" />
 
     <Button
         android:id="@+id/profile"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="50dp"
         android:onClick="profile"
-        android:text="@string/profile" />
+        android:text="@string/profile"
+        android:background="@drawable/btn_main_back" />
 
     <Button
         android:id="@+id/information"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="50dp"
         android:onClick="information"
-        android:text="@string/information" />
+        android:text="@string/information"
+        android:background="@drawable/btn_main_back" />
 
 </LinearLayout>
