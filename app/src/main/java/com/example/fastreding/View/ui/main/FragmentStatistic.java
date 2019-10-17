@@ -43,7 +43,7 @@ public class FragmentStatistic extends Fragment implements View.OnClickListener 
 
     private void createChart() {
         pieChart = (LineChart) view.findViewById(R.id.chart1);
-        LineDataSet lineDataSet = new LineDataSet(new ArrayList<Entry>(), "data set 1");
+        LineDataSet lineDataSet = new LineDataSet(new ArrayList<Entry>(), "данные упражнения");
         ArrayList<ILineDataSet> dataSets = new ArrayList<>();
         dataSets.add(lineDataSet);
         LineData data = new LineData(dataSets);
@@ -89,12 +89,12 @@ public class FragmentStatistic extends Fragment implements View.OnClickListener 
 
     public void changeChart(String nameTable) {
         model = new Model(getActivity().getApplicationContext());
-        LineDataSet lineDataSet = new LineDataSet(createDataEntry(model.getPastResult(nameTable)), "data set 1");
+        LineDataSet lineDataSet = new LineDataSet(createDataEntry(model.getPastResult(nameTable)), "данные упражнения");
         ArrayList<ILineDataSet> dataSets = new ArrayList<>();
         dataSets.add(lineDataSet);
         LineData data = new LineData(dataSets);
         pieChart.setData(data);
-
+        pieChart.invalidate();
     }
 
     @Override

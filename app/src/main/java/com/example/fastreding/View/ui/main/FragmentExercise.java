@@ -27,7 +27,7 @@ public class FragmentExercise extends Fragment {
         listView = view.findViewById(R.id.exercise);
 
         String[] elem = getResources().getStringArray(R.array.name_exercise);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, elem);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), R.layout.listview_layout, elem);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
