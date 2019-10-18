@@ -31,39 +31,8 @@ public class Training extends AppCompatActivity {
     }
 
     public void startExercise(int position) {
-        switch (position) {
-            case 0:
-                Intent intent = new Intent(Training.this, WordPair.class);
-                startActivity(intent);
-                break;
-            case 1:
-                intent = new Intent(Training.this, TableSchulte.class);
-                startActivity(intent);
-                break;
-            case 2:
-                intent = new Intent(Training.this, Numerical.class);
-                startActivity(intent);
-                break;
-            case 3:
-                intent = new Intent(Training.this, SearchLetter.class);
-                startActivity(intent);
-                break;
-            case 4:
-                intent = new Intent(Training.this, EvenNumbers.class);
-                startActivity(intent);
-                break;
-            case 5:
-                intent = new Intent(Training.this, DifferentWords.class);
-                startActivity(intent);
-                break;
-            case 6:
-                intent = new Intent(Training.this, Suggestions.class);
-                startActivity(intent);
-                break;
-            case 7:
-                intent = new Intent(Training.this, ReadingSpeed.class);
-                startActivity(intent);
-                break;
-        }
+        Intent intent = new Intent(Training.this, SpinnerLoadActivity.class);
+        intent.putExtra("indexExercise", position);
+        startActivity(intent);
     }
 }

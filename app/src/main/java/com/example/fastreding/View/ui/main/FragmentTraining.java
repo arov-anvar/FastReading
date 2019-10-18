@@ -21,6 +21,7 @@ import com.example.fastreding.View.exercise.Suggestions;
 import com.example.fastreding.View.exercise.TableSchulte;
 import com.example.fastreding.View.exercise.WordPair;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class FragmentTraining extends Fragment {
@@ -51,40 +52,6 @@ public class FragmentTraining extends Fragment {
         super.onActivityCreated(savedInstanceState);
     }
 
-    private void selectExercise(int index) {
-        Intent intent;
-        switch (index) {
-            case 0:
-                intent = new Intent(getActivity(), WordPair.class);
-                break;
-            case 1:
-                intent = new Intent(getActivity(), TableSchulte.class);
-                break;
-            case 2:
-                intent = new Intent(getActivity(), Numerical.class);
-                break;
-            case 3:
-                intent = new Intent(getActivity(), SearchLetter.class);
-                break;
-            case 4:
-                intent = new Intent(getActivity(), EvenNumbers.class);
-                break;
-            case 5:
-                intent = new Intent(getActivity(), DifferentWords.class);
-                break;
-            case 6:
-                intent = new Intent(getActivity(), Suggestions.class);
-                break;
-            case 7:
-                intent = new Intent(getActivity(), ReadingSpeed.class);
-                break;
-            default:
-                intent = new Intent(getActivity(), ReadingSpeed.class);
-                break;
-        }
-        startActivity(intent);
-    }
-
     private int getRandomNumber() {
         Random r = new Random();
         return r.nextInt(8);
@@ -94,8 +61,14 @@ public class FragmentTraining extends Fragment {
         nextExercise.setText(nameExercise[getRandomNumber()]);
     }
 
-    private void startExercise(String nameExercise) {
-        selectExercise(nameExercise.indexOf(nameExercise));
+    private void startExercise(String name) {
+        Training activity = (Training) getActivity();
+        for (int i = 0; i < nameExercise.length; i++) {
+            if (nameExercise[i].equals(name)) {
+                activity.startExercise(i);
+            }
+        }
+
     }
 
 
