@@ -34,7 +34,7 @@ public class Model {
         if (myCursor.getCount() < 1) return null;
         myCursor.moveToFirst();
         for (int i = 0; i < myCursor.getCount(); ++i) {
-            outArray.add(myCursor.getInt(1));//уточнить какой столбец
+            outArray.add(myCursor.getInt(2));//уточнить какой столбец
             myCursor.moveToNext();
         }
         db.close();

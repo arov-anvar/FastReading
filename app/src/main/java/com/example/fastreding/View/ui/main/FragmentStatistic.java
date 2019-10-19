@@ -134,4 +134,5 @@ public class FragmentStatistic extends Fragment implements View.OnClickListener 
         }
 
     }
+
 }

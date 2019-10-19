@@ -7,6 +7,8 @@ import com.example.fastreding.R;
 import com.example.fastreding.db.DatabaseHelper;
 import com.example.fastreding.db.Model;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 public class PresenterReadingSpeed implements MainContract.Presenter {
@@ -37,6 +39,14 @@ public class PresenterReadingSpeed implements MainContract.Presenter {
             }
         }
         return count;
+    }
+
+    public ArrayList<Integer> getPastResult() {
+        return model.getPastResult(DatabaseHelper.TABLE_READING_SPEED);
+    }
+
+    public Integer getRecord() {
+        return Collections.max(getPastResult());
     }
 
     @Override

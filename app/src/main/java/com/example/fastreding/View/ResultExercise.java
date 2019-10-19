@@ -6,6 +6,12 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.fastreding.R;
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 
 import org.w3c.dom.Text;
 
@@ -14,24 +20,58 @@ import java.util.ArrayList;
 public class ResultExercise extends AppCompatActivity {
 
     public TextView textView, textView1;
+    private String countPoint, exerciseName, record;
+    private ArrayList<Integer> pastResults;
+    private TextView yourResult;
+    private TextView yourRecord;
+    private TextView exerciseNameTextView;
+    private LineChart pieChart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result_exercise);
-        textView = (TextView) findViewById(R.id.textView);
-        textView1 = (TextView) findViewById(R.id.textView1);
-        Intent intent = getIntent();
-        textView.setText(intent.getStringExtra("countPoint"));
-        textView1.setText(intent.getStringExtra("exerciseName"));
 
-        String a1 = "";// = intent.getStringExtra("record");
-        ArrayList<Integer> a2 = intent.getIntegerArrayListExtra("pastResult");
-        if (a2 != null) {
-            for (int i = 0; i < a2.size(); i++) {
-                a1 += a2.get(i);
-            }
+        getIntentData();
+        init();
+        createChart();
+    }
+
+    private void getIntentData() {
+        Intent intent = getIntent();
+        countPoint = intent.getStringExtra("countPoint");
+        exerciseName = intent.getStringExtra("exerciseName");
+        record = intent.getStringExtra("record");
+        pastResults = intent.getIntegerArrayListExtra("pastResults");
+    }
+
+    private void init() {
+        yourRecord = (TextView) findViewById(R.id.your_record);
+        yourResult = (TextView) findViewById(R.id.your_result);
+        exerciseNameTextView = (TextView) findViewById(R.id.exerciseName);
+        pieChart = (LineChart) findViewById(R.id.chart);
+        yourRecord.setText(record);
+        yourResult.setText(countPoint);
+        exerciseNameTextView.setText(exerciseName);
+    }
+
+    private ArrayList<Entry> createDataEntry(ArrayList<Integer> values) {
+        ArrayList<Entry> dataValues = new ArrayList<Entry>();
+        for (int i = 0; i < values.size(); i++) {
+            dataValues.add(new Entry(i, values.get(i)));
         }
-        textView1.setText(a1);
+        return dataValues;
+    }
+
+    private void createChart() {
+        LineDataSet lineDataSet = new LineDataSet(createDataEntry(pastResults), "данные упражнения");
+        ArrayList<ILineDataSet> dataSets = new ArrayList<>();
+        dataSets.add(lineDataSet);
+        LineData data = new LineData(dataSets);
+        Description description = new Description();
+        description.setText("");
+        pieChart.setDescription(description);
+        pieChart.setData(data);
+        pieChart.invalidate();
     }
 }

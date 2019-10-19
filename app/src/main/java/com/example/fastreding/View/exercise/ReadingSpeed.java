@@ -16,11 +16,14 @@ import org.w3c.dom.Text;
 
 public class ReadingSpeed extends AppCompatActivity {
 
+    private final String NAME = "Скорость чтения";
+
     private PresenterReadingSpeed presenter;
     private TextView textArea;
     private String text;
     private boolean running;
     private int countSeconds = 1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +60,10 @@ public class ReadingSpeed extends AppCompatActivity {
         float speed = (float)presenter.getCountWords(text) / ((float)countSeconds / 60f);
         presenter.setResult((int) speed);
         Intent intent = new Intent(ReadingSpeed.this, ResultExercise.class);
-        intent.putExtra("countPoint", (int) speed);
+        intent.putExtra("countPoint", Float.toString(speed));       //передача количесво очков
+        intent.putExtra("exerciseName", this.NAME);                 //         название упражнения
+        intent.putExtra("record", presenter.getRecord().toString());//         рекорда
+        intent.putIntegerArrayListExtra("pastResults", presenter.getPastResult());
         startActivity(intent);
         this.finish();
     }

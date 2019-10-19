@@ -42,6 +42,8 @@
     <string name="exercise_7">Предложения</string>
     <string name="exercise_8">Скорость чтения</string>
     <string name="next_exercise">следующее упражнение</string>
+    <string name="your_result">Ваш результат</string>
+    <string name="your_record">Ваш рекорд</string>
 
 
 </resources>

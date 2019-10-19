@@ -110,9 +110,10 @@ public class TableSchulte extends AppCompatActivity implements MainContract.View
         presenter.setResult(countPoint);
 
         Intent intent = new Intent(TableSchulte.this, ResultExercise.class);
-        intent.putExtra("countPoint", countPoint.toString());
-        intent.putExtra("exerciseName", NAME);
-        intent.putExtra("countPoint", presenter.getRecord().toString());
+        intent.putExtra("countPoint", countPoint.toString());       //передача количесво очков
+        intent.putExtra("exerciseName", this.NAME);                 //         название упражнения
+        intent.putExtra("record", presenter.getRecord().toString());//         рекорда
+        intent.putIntegerArrayListExtra("pastResults", presenter.getPastResult());
         startActivity(intent);
         this.finish();
     }
