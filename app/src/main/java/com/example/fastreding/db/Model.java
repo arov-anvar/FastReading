@@ -23,7 +23,7 @@ public class Model {
         cv.put(DatabaseHelper.COLUMN_COUNT_POINT, point);
         // надо доработать id пользователя
         cv.put(DatabaseHelper.COLUMN_USERS_ID, 1);
-        db.insert(tableName, null, cv);
+        long a = db.insert(tableName, null, cv);
         db.close();
     }
 
@@ -33,6 +33,7 @@ public class Model {
         myCursor = db.rawQuery("SELECT * FROM " + tableName, null);
         if (myCursor.getCount() < 1) {
             outArray.add(0);
+            myCursor.close();
             return outArray;
         }
         myCursor.moveToFirst();
@@ -41,6 +42,7 @@ public class Model {
             myCursor.moveToNext();
         }
         db.close();
+        myCursor.close();
         return outArray;
     }
 }

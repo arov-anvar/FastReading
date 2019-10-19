@@ -64,7 +64,6 @@ public class ResultExercise extends AppCompatActivity {
         for (int i = 0; i < values.size(); i++) {
             dataValues.add(new Entry(i, values.get(i)));
         }
-        dataValues.add(new Entry(values.size(), Float.parseFloat(countPoint)));
         return dataValues;
     }
 

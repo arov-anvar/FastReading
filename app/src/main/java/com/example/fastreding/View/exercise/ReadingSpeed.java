@@ -55,12 +55,12 @@ public class ReadingSpeed extends AppCompatActivity {
     }
 
     public void ready(View view) {
-        //
+
         running = false;
-        float speed = (float)presenter.getCountWords(text) / ((float)countSeconds / 60f);
-        presenter.setResult((int) speed);
+        Integer speed = Math.round(presenter.getCountWords(text) / ((float)countSeconds / 60f));
+        presenter.setResult(speed);
         Intent intent = new Intent(ReadingSpeed.this, ResultExercise.class);
-        intent.putExtra("countPoint", Float.toString(speed));       //передача количесво очков
+        intent.putExtra("countPoint", speed.toString());       //передача количесво очков
         intent.putExtra("exerciseName", this.NAME);                 //         название упражнения
         intent.putExtra("record", presenter.getRecord().toString());//         рекорда
         intent.putIntegerArrayListExtra("pastResults", presenter.getPastResult());
