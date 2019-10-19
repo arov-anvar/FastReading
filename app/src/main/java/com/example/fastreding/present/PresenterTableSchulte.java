@@ -53,8 +53,7 @@ public class PresenterTableSchulte {
     }
 
     public Integer getCountPointFromTime(float time) {
-        if (time >= 350f) return 0;
+        if (time >= 35f) return 0;
         return Math.round((350f - time*10)/3);
-
     }
 }

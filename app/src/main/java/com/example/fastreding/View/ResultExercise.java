@@ -50,7 +50,11 @@ public class ResultExercise extends AppCompatActivity {
         yourResult = (TextView) findViewById(R.id.your_result);
         exerciseNameTextView = (TextView) findViewById(R.id.exerciseName);
         pieChart = (LineChart) findViewById(R.id.chart);
-        yourRecord.setText(record);
+        if (Float.parseFloat(countPoint) > Float.parseFloat(record)) {
+            yourRecord.setText(countPoint);
+        } else {
+            yourRecord.setText(record);
+        }
         yourResult.setText(countPoint);
         exerciseNameTextView.setText(exerciseName);
     }
@@ -60,6 +64,7 @@ public class ResultExercise extends AppCompatActivity {
         for (int i = 0; i < values.size(); i++) {
             dataValues.add(new Entry(i, values.get(i)));
         }
+        dataValues.add(new Entry(values.size(), Float.parseFloat(countPoint)));
         return dataValues;
     }
 

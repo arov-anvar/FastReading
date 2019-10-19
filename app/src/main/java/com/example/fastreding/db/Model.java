@@ -31,16 +31,16 @@ public class Model {
         db = dbHelper.getReadableDatabase();
         ArrayList<Integer> outArray = new ArrayList<>();
         myCursor = db.rawQuery("SELECT * FROM " + tableName, null);
-        if (myCursor.getCount() < 1) return null;
+        if (myCursor.getCount() < 1) {
+            outArray.add(0);
+            return outArray;
+        }
         myCursor.moveToFirst();
         for (int i = 0; i < myCursor.getCount(); ++i) {
             outArray.add(myCursor.getInt(2));//уточнить какой столбец
             myCursor.moveToNext();
         }
         db.close();
-        if (outArray.size() == 0) {
-            outArray.add(0);
-        }
         return outArray;
     }
 }

@@ -76,6 +76,10 @@ public class FragmentStatistic extends Fragment implements View.OnClickListener 
 
     private ArrayList<Entry> createDataEntry(ArrayList<Integer> values) {
         ArrayList<Entry> dataValues = new ArrayList<Entry>();
+        if (values == null) {
+            values = new ArrayList<>();
+            values.add(0);
+        }
         for (int i = 0; i < values.size(); i++) {
             dataValues.add(new Entry(i, values.get(i)));
         }
@@ -89,7 +93,8 @@ public class FragmentStatistic extends Fragment implements View.OnClickListener 
 
     public void changeChart(String nameTable) {
         model = new Model(getActivity().getApplicationContext());
-        LineDataSet lineDataSet = new LineDataSet(createDataEntry(model.getPastResult(nameTable)), "данные упражнения");
+        ArrayList<Entry> dataEntry = createDataEntry(model.getPastResult(nameTable));
+        LineDataSet lineDataSet = new LineDataSet(dataEntry, "данные упражнения");
         ArrayList<ILineDataSet> dataSets = new ArrayList<>();
         dataSets.add(lineDataSet);
         LineData data = new LineData(dataSets);
