@@ -61,7 +61,7 @@ public class Model {
         db = dbHelper.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put("name", name);
-        db.insert(DatabaseHelper.TABLE_USERS, null, cv);
+        db.update(DatabaseHelper.TABLE_USERS, cv, DatabaseHelper.COLUMN_ID + "=1", null);
         db.close();
     }
 }

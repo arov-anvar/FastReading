@@ -50,6 +50,8 @@
     <string name="best_exercise">Лучшее упражнение</string>
     <string name="lose_exercise">Худшее упражнение</string>
     <string name="middle_result">Средий результат</string>
+    <string name="input_name">Введите имя</string>
+    <string name="add">добавить</string>
 
 
 </resources>
