@@ -51,6 +51,8 @@ public class FragmentStatistic extends Fragment implements View.OnClickListener 
         description.setText("");
         pieChart.setDescription(description);
         pieChart.setData(data);
+        pieChart.setScaleX(1f);
+        pieChart.setScaleY(1f);
         pieChart.invalidate();
     }
 

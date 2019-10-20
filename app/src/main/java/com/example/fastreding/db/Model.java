@@ -45,4 +45,23 @@ public class Model {
         myCursor.close();
         return outArray;
     }
+
+    public String getUserName() {
+        db = dbHelper.getReadableDatabase();
+        myCursor = db.rawQuery("SELECT * FROM " + DatabaseHelper.TABLE_USERS, null);
+        if (myCursor.getCount() < 1) return "";
+        myCursor.moveToFirst();
+        String name =  myCursor.getString(1);
+        db.close();
+        myCursor.close();
+        return name;
+    }
+
+    public void setUserName(String name) {
+        db = dbHelper.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("name", name);
+        db.insert(DatabaseHelper.TABLE_USERS, null, cv);
+        db.close();
+    }
 }

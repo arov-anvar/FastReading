@@ -11,6 +11,16 @@
         <item>Скорость чтения</item>
     </string-array>
 
+    <string-array name="name_exercise_table">
+        <item>wordpair</item>
+        <item>tableschulte</item>
+        <item>numerical</item>
+        <item>searchletter</item>
+        <item>evennumbers</item>
+        <item>differentwords</item>
+        <item>suggestions</item>
+    </string-array>
+
     <!-- Word Pair-->
     <string-array name="word_pair_4">
         <item>1111</item>
