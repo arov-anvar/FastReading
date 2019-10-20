@@ -60,7 +60,7 @@ public class PresenterEvenNumbers implements MainContract.Presenter {
     }
 
     public ArrayList<Integer> getPastResult() {
-        return model.getPastResult(DatabaseHelper.TABLE_NUMERICAL);
+        return model.getPastResult(DatabaseHelper.TABLE_EVEN_NUMBERS);
     }
 
     public Integer getRecord() {

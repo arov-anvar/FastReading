@@ -25,11 +25,11 @@ public class PresenterSearchLetter implements MainContract.Presenter {
 
     @Override
     public void setResult(int point) {
-        model.setResult(DatabaseHelper.TABLE_NUMERICAL, point);
+        model.setResult(DatabaseHelper.TABLE_SEARCH_LETTER, point);
     }
 
     public ArrayList<Integer> getPastResult() {
-        return model.getPastResult(DatabaseHelper.TABLE_NUMERICAL);
+        return model.getPastResult(DatabaseHelper.TABLE_SEARCH_LETTER);
     }
 
     public String getRightLetter() {
