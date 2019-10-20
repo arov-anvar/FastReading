@@ -53,8 +53,10 @@ public class SearchLetter extends AppCompatActivity implements MainContract.View
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 TextView textView = (TextView) view;
-                if (textView.getText().toString().equals(presenter.getRightLetter())) {
+                if (textView.getText().toString().equals(presenter.getRightLetter())
+                        && textView.getBackground() == null) {
                     textView.setBackgroundResource(R.color.yellow);
+                    textView.setTag(R.color.yellow);
                     --countLeft;
                     countPoint += 2;
                     textViewCountLeft.setText(countLeft.toString());

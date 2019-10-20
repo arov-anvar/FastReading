@@ -123,6 +123,15 @@ public class Numerical extends AppCompatActivity implements MainContract.ViewExe
         }
     }
 
+    public void deleteNumber(View view) {
+        String strInput = viewNumerical.getText().toString();
+        Integer index = strInput.indexOf("_");
+        if (index > 1) {
+            strInput = strInput.substring(0, index - 2) + "_" + strInput.substring(index - 1);
+        }
+        viewNumerical.setText(strInput);
+    }
+
     @Override
     public void exerciseEnd() {
 
@@ -142,4 +151,6 @@ public class Numerical extends AppCompatActivity implements MainContract.ViewExe
         this.finish();
 
     }
+
+
 }

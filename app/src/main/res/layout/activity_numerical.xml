@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".View.exercise.Numerical">
+    tools:context=".View.exercise.Numerical"
+    android:background="@drawable/main_background">
 
 
     <LinearLayout
@@ -125,8 +126,8 @@
         <Button
             android:layout_margin="3dp"
             android:background="@color/blue"
-            android:onClick="checkAnswer"
-            android:text="@string/one"
+            android:onClick="deleteNumber"
+            android:text="@string/delete"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_cell" />
 

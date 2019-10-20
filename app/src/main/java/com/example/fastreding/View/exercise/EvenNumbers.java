@@ -1,6 +1,8 @@
 package com.example.fastreding.View.exercise;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.support.annotation.DrawableRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -48,7 +50,8 @@ public class EvenNumbers extends AppCompatActivity implements MainContract.ViewE
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 TextView textView = (TextView) view;
-                if (Integer.parseInt(textView.getText().toString()) % 2 == 0) {
+                if (Integer.parseInt(textView.getText().toString()) % 2 == 0
+                        && textView.getBackground() == null) {
                     textView.setBackgroundResource(R.color.yellow);
                     --countLeft;
                     countPoint += 2;
