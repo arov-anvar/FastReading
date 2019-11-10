@@ -5,9 +5,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.fastreding.MainContract;
+
 import java.util.ArrayList;
 
-public class Model {
+public class Model implements MainContract.Model {
 
     private DatabaseHelper dbHelper;
     private SQLiteDatabase db;
@@ -17,6 +19,7 @@ public class Model {
         dbHelper = new DatabaseHelper(context);
     }
 
+    @Override
     public void setResult(String tableName, int point) {
         db = dbHelper.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -27,6 +30,7 @@ public class Model {
         db.close();
     }
 
+    @Override
     public ArrayList<Integer> getPastResult(String tableName) {
         db = dbHelper.getReadableDatabase();
         ArrayList<Integer> outArray = new ArrayList<>();
@@ -46,6 +50,7 @@ public class Model {
         return outArray;
     }
 
+    @Override
     public String getUserName() {
         db = dbHelper.getReadableDatabase();
         myCursor = db.rawQuery("SELECT * FROM " + DatabaseHelper.TABLE_USERS, null);
@@ -57,6 +62,7 @@ public class Model {
         return name;
     }
 
+    @Override
     public void setUserName(String name) {
         db = dbHelper.getWritableDatabase();
         ContentValues cv = new ContentValues();

@@ -1,14 +1,12 @@
 package com.example.fastreding;
 
-import android.view.View;
+
+import java.util.ArrayList;
 
 public interface MainContract {
 
     interface ViewExercise {
         void init();
-//        void preparationToStart();
-//        void startExercise();
-//        void checkAnswer(View view);
         void exerciseEnd();
     }
 
@@ -17,6 +15,9 @@ public interface MainContract {
     }
 
     interface Model {
-
+        void setResult(String tableName, int point);
+        ArrayList<Integer> getPastResult(String tableName);
+        String getUserName();
+        void setUserName(String name);
     }
 }
