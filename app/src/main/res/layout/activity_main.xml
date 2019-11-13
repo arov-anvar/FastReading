@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/main_background"
     android:orientation="vertical"
-    tools:context=".View.MainActivity"
-    android:background="@drawable/main_background">
+    tools:context=".View.MainActivity">
 
 
     <ImageView
@@ -15,14 +15,13 @@
         android:src="@drawable/book_open" />
 
     <Button
-        android:layout_marginTop="50dp"
         android:id="@+id/training"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="50dp"
-        android:onClick="training"
+        android:layout_marginTop="50dp"
         android:background="@drawable/btn_main_back"
+        android:onClick="training"
         android:text="@string/training" />
 
     <Button
@@ -30,19 +29,19 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="50dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/btn_main_back"
         android:onClick="profile"
-        android:text="@string/profile"
-        android:background="@drawable/btn_main_back" />
+        android:text="@string/profile" />
 
     <Button
         android:id="@+id/information"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="50dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/btn_main_back"
         android:onClick="information"
-        android:text="@string/information"
-        android:background="@drawable/btn_main_back" />
+        android:text="@string/information" />
 
 </LinearLayout>

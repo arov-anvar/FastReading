@@ -1,5 +1,6 @@
 package com.example.fastreding.View.exercise;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -57,7 +58,8 @@ public class TableSchulte extends AppCompatActivity implements MainContract.View
             public void run() {
                 if (stateStopWatch) {
                     time = Float.parseFloat(timerTextView.getText().toString()) + 0.1f;
-                    timerTextView.setText(String.format("%.1f", time));
+                    time = (float) Math.round(time * 10) / 10;
+                    timerTextView.setText(time.toString());
                     stopWatch.postDelayed(this, MILISECOND_UPDATE);
                 }
             }
